@@ -4,10 +4,10 @@ var shilefare = require('../lib/shilefare')
   , util = require('../lib/util')
 
 var path = process.argv[2]
-shilefare.shareFile(path, function(err, url) {
+shilefare.shareFile(path, function(err, file, firstURL) {
   if (err) return console.error(err.message)
   var app = server.createServer(server.SINGLE_FILE_MODE)
   server.configureDownloadRoute(app, shilefare, server.SINGLE_FILE_MODE)
   server.startServer(app, shilefare)
-  util.timestampLog('Download link: %s', url)
+  util.timestampLog('Download link: %s', firstURL)
 })
