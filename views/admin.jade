@@ -1,0 +1,36 @@
+extends base
+
+block content
+  form.form-horizontal(action='/share', method='POST')
+    fieldset
+      legend Share a File
+      div.control-group
+        label.control-label(for='path') File path
+        div.controls
+          input(style='width: 500px', type='text', name='path', id='path')
+          p.help-block The full path to the file to be shared
+      div.form-actions
+        button.btn.btn-primary(type='submit') Share
+
+  h1 Shared Files
+  if !files.length
+    p You're not sharing any files yet.
+  else
+    p.
+      Active, one-time use links for shared files are listed below. If you run
+      out, you can generate new links.
+  for file in files
+    div.file
+      h2 #{file.fileName} (#{file.fileSize}) <small>#{file.path}</small>
+      links = file.activeLinks()
+      if links.length
+        ul
+          for link in links
+            li= link
+      else
+        p This file does not have any active links.
+      form(action='/generate_link', method='POST')
+        div
+          input(type='hidden', name='file', value='#{file.index}')
+          div.form-actions
+            button.btn.btn-primary(type='submit') Generate Link

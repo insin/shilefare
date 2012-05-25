@@ -1,0 +1,16 @@
+extends base
+
+block content
+  form.form-horizontal(action='/login', method='POST')
+    fieldset
+      legend Admin Login
+      div.control-group
+        label.control-label(for='user') User
+        div.controls
+          input(type='text', name='user', id='user')
+      div.control-group
+        label.control-label(for='pass') Pass
+        div.controls
+          input(type='password', name='pass', id='pass')
+      div.form-actions
+        button.btn.btn-primary(type='submit') Submit

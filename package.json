@@ -1,0 +1,18 @@
+{
+  "name": "shilefare"
+, "description": "Dead simple local, temporary file sharing with Node.js "
+, "version": "0.0.1"
+, "author": "Jonathan Buchanan <jonathan.buchanan@gmail.com> (https://github.com/insin)"
+, "homepage": "https://github.com/insin/shilefare"
+, "repository": {
+    "type": "git"
+  , "url": "https://github.com/insin/shilefare.git"
+  }
+, "dependencies": {
+    "express": "2.x"
+  , "jade": "0.26.x"
+  }
+, "scripts": {
+    "run": "node server.js"
+  }
+}
