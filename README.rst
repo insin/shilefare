@@ -40,7 +40,11 @@ and also generate additional download links for files.
    Secret key for this session is: aa93627c821e5fda020adc1eb3677758f0062f0c
    [23:11] shilefare server listening on http://127.0.0.1:3000
 
+Login screen:
+
 .. image:: https://github.com/insin/shilefare/raw/master/screenshots/shilefare01.png
+
+Admin screen:
 
 .. image:: https://github.com/insin/shilefare/raw/master/screenshots/shilefare02.png
 
