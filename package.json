@@ -11,10 +11,8 @@
 , "dependencies": {
     "express": "2.x"
   , "jade": "0.26.x"
+  , "commander": "0.6.x"
+  , "async": "0.1.x"
   }
-, "main": "lib/shilefare"
-, "bin": "bin/shilefare"
-, "scripts": {
-    "run": "node server.js"
-  }
+, "bin": "./bin/shilefare.js"
 }

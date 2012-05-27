@@ -1,13 +1,24 @@
 #!/usr/bin/env node
+
+var program = require('commander')
+
 var shilefare = require('../lib/shilefare')
   , server = require('../lib/server')
-  , util = require('../lib/util')
+  , settings = require('../lib/settings')
 
-var path = process.argv[2]
-shilefare.shareFile(path, function(err, file, firstURL) {
-  if (err) return console.error(err.message)
-  var app = server.createServer(server.SINGLE_FILE_MODE)
-  server.configureDownloadRoute(app, shilefare, server.SINGLE_FILE_MODE)
-  server.startServer(app, shilefare)
-  util.timestampLog('Download link: %s', firstURL)
-})
+program
+  .version(require('../package.json').version)
+  .usage('[options] [file ...]')
+  .option('-p, --port [port]', 'port to serve on [3000]', Number, settings.port)
+  .option('-s, --server [server]', 'hostname or IP your machine can be accessed at [' + settings.host + ']', settings.host)
+  .parse(process.argv)
+
+settings.port = program.port
+settings.host = program.server
+
+if (program.args.length) {
+  server.startSingleFileServer(program.args)
+}
+else {
+  server.startFullServer()
+}
