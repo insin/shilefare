@@ -15,4 +15,5 @@
   , "async": "0.1.x"
   }
 , "bin": "./bin/shilefare.js"
+, "license": "MIT"
 }
