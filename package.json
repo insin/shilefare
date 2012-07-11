@@ -14,6 +14,9 @@
   , "commander": "0.6.x"
   , "async": "0.1.x"
   }
+, "scripts": {
+    "start": "node lib/server"
+  }
 , "bin": "./bin/shilefare.js"
 , "license": "MIT"
 }
